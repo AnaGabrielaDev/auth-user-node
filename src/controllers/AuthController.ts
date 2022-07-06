@@ -24,7 +24,7 @@ class AuthController {
         });
 
         const token = jsonwebtoken.sign(
-            { name: user.name, email },
+            { id: user.id, name: user.name, email },
             process.env.JWT_SECRET!
         );
 

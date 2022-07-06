@@ -17,4 +17,17 @@ model User {
   password String
 
   @@map("users")
+  Post Post[]
+}
+
+model Post {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  image       String?
+  owner       User     @relation(fields: [userId], references: [id])
+  created_at  DateTime @default(now())
+
+  @@map("posts")
+  userId String
 }
